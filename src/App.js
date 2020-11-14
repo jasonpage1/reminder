@@ -1,25 +1,21 @@
 import React, { Component } from "react";
 import { Button, Col, Container, Input, Row } from "reactstrap";
-
+import { Heading } from "./Heading";
+import {Table} from"./table"
 export class App extends Component {
   constructor(props) {
     super();
-    this.state = {};
+    this.state = {
+      headingTitleName: 'basics', 
+      tableTilteName: 'jason'
+    };
   }
 
   render() {
     return (
-      (
-        <head>
-          <title>Basics</title>
-        </head>
-      ),
-      (
-        <body>
-          <h1> Basics</h1>
-          <p>
-            This is a <strong>paragraph</strong>.
-          </p>
+
+        <div>
+          <Heading headingTitleName={this.state.headingTitleName}/>
           <p>
             i learned this from{" "}
             <a href="https://www.youtube.com/watch?v=UB1O30fR-EE&t=386s">
@@ -47,21 +43,14 @@ export class App extends Component {
             </ul>
           </p>
           <p>this is how you add a table</p>
-          <table>
-            {" "}
-            <thead>
-              <tr>
-                <th>name</th>
-                <th>email</th>
-                <th>age</th>
-              </tr>
-            </thead>
-            <tbody>
-              <td>jason</td>
-              <td>24</td>
-              <td>jason123jay@gmail.com</td>
-            </tbody>
-          </table>
+          <input
+              type="text"
+              name="FirstName"
+              placeholder="Enter title name"
+              onChange={(e) => this.setState({ tableTilteName: e.target.value})}
+            ></input>
+         <Table aaa={"aaa"} tableTilteName={this.state.tableTilteName}/>
+
           <br></br>
           <p> to make a line across the page us hr </p>
           <hr></hr>
@@ -72,14 +61,26 @@ export class App extends Component {
           <br></br>
           <form action="prosses.php" method="POST">
             <label>FirstName</label>
-            <input type="text" name="FirstName" placeholder="Enter First Name here"></input>
-            
+            <input
+              type="text"
+              name="FirstName"
+              placeholder="Enter First Name here"
+            ></input>
+
             <br></br>
             <label>LastName</label>
-            <input type="text" name="LastName" placeholder="Enter Last Name here"></input>
+            <input
+              type="text"
+              name="LastName"
+              placeholder="Enter Last Name here"
+            ></input>
             <br></br>
             <label>email</label>
-            <input type="email" name="email" placeholder="Enter email here"></input>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter email here"
+            ></input>
             <br></br>
             <label>message</label>
             <textarea name="Message"></textarea>
@@ -89,10 +90,10 @@ export class App extends Component {
               <option value="male">Male</option>
               <option value="female">female</option>
             </select>
-<br></br>
-<div>
-            <label>Age</label>
-            <input type="number" name="Age" value="24"></input>
+            <br></br>
+            <div>
+              <label>Age</label>
+              <input type="number" name="Age" value="24"></input>
             </div>
             <br></br>
             <div>
@@ -103,9 +104,8 @@ export class App extends Component {
               <input type="submit" name="submit" value="submit"></input>
             </div>
           </form>
-          <img src="pic.jfif"></img>
-        </body>
-      )
-    );
+          <img src="./Assets/pic.png"></img>
+          </div>
+      );
   }
 }
